@@ -13,15 +13,15 @@ class Key {
 const key = new Key();
 
 abstract class House {
-  door: true | false;
+  door: false;
   key: Key;
   tenants: Array<Person> = [];
 
   comeIn(person: Person) {
     if (!this.door) {
-      console.log("Welcome home!");
+      console.log("Door is open");
         this.tenants.push(person);
-        this.door = true;
+        this.door;
     }
   }
 
@@ -34,10 +34,10 @@ class MyHouse extends House {
     this.key = key;
   }
 
-  openDoor(key: Key) {
-    if (!this.door) {
-      console.log("Door is open");
-      this.door = true;
+  openDoor(key: Key):void {
+    if (key.getSignature() === this.key.getSignature()) {
+      console.log("Welcome home!");
+      this.door;
     }
   }
 }
