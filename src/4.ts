@@ -22,7 +22,7 @@ abstract class House {
     }
 
     comeIn(person: Person) {
-        if (!this.door) {
+        if (this.door) {
             this.tenants.push(person);
         }
     }
